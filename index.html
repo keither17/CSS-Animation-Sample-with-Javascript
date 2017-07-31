@@ -1,0 +1,119 @@
+<!-- By: Essential  kindly keep this along with your docs thanks-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="freecodecamp Challenge #3 - Build A Random Quote Machine">
+  <title>Transitioning Sample</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- custom stylesheet -->
+  <style type="text/css">
+  @import url('https://fonts.googleapis.com/css?family=Oswald');
+  body {
+    font-family: 'Oswald', sans-serif;
+    background-color: #000;
+    overflow: hidden;
+  }
+    .twt {
+      background-color: #0084b4;
+    }
+    .pin {
+      background-color: #C92228;
+    }
+    div.animateMe {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    }
+ div.animation1    {
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+
+  -webkit-animation-name: slidein;
+  -moz-animation-name: slidein;
+  -o-animation-name: slidein;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+div.animation2 {
+  /* avoiding the shorthand to make it in details */
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+
+  -webkit-animation-name: slidein2;
+  -moz-animation-name: slidein2;
+  -o-animation-name: slidein2;
+  animation-name: slidein2;
+}
+@keyframes slidein2 {
+  from {
+    margin-left: 100%;
+    width : 300%;
+  }
+  to {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+    div a[role='button'] {
+      position: fixed;
+      display: block;
+      top: 30px;
+      right: 50px;
+
+      z-index: 100;
+    }
+  </style>
+  <!-- Custom Script -->
+  <script type="text/javascript">
+  var tags = ( function(str) {
+    str = str;
+    return document.getElementById(str) || document.querySelector(str) || document.all[str];
+  });
+  var counter = 0;
+  window.addEventListener( 'load', function() {
+          tags('trig').addEventListener('click', function() {
+          if ( counter === 2) counter = 0;
+          var classes = ['pin animateMe animation1','twt animateMe animation2', ['slide from the left', 'slide from the right']];
+          this.innerHTML = '<span class="glyphicon glyphicon-play" aria-hidden="true"></span> ' + classes[2][counter];
+          tags('myTransition').className = classes[counter];
+          counter++;
+        });
+  });
+  </script>
+</head>
+  <body>
+    <div class="container-fluid">
+      <!-- here is the div tat we will use to hold our transitoning animation -->
+      <div class="row">
+        <a id="trig" class="btn btn-default" href="#" role="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> PLAY</a>
+        <div id="myTransition" class="animateMe"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
